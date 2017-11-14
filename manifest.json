@@ -1,0 +1,6 @@
+{
+  "name": "learn-polymer-demo",
+  "short_name": "learn-polymer-demo",
+  "start_url": "/",
+  "display": "standalone"
+}

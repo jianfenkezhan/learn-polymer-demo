@@ -1,0 +1,76 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<!-- <link rel="import" href="../../bower_components/app-layout/demo/sample-content.html"> -->
+<link rel="import" href="../../src/x-app/demo-content.html">
+
+
+<dom-module id="x-app">
+
+  <template>
+
+    <style>
+      app-header {
+        background-color: #00897B;
+        color: #fff;
+      }
+      paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+      app-drawer-layout:not([narrow]) [drawer-toggle] {
+        display: none;
+      }
+      .bar-title {
+        background: rgb(115, 230, 153);
+        margin-top: 5px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border-radius: 50%;
+      }
+      .bar-title span {
+        position: relative;
+        top: 15px;
+      }
+    </style>
+
+    <app-drawer-layout>
+      <app-drawer slot="drawer">
+        <app-toolbar><div class='bar-title'><span>Mujianguo</span></div></app-toolbar>
+      </app-drawer>
+      <app-header-layout>
+        <app-header slot="header" reveals effects="waterfall">
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <div main-title>这里有[[prop1]]</div>
+          </app-toolbar>
+        </app-header>
+
+        <demo-content size="100"></demo-content>
+      </app-header-layout>
+    </app-drawer-layout>
+  </template>
+
+  <script>
+    class Xapp extends Polymer.Element {
+      static get is() { return 'x-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: '最前沿科技咨讯'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(Xapp.is, Xapp);
+  </script>
+
+</dom-module>
